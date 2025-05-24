@@ -1,5 +1,3 @@
-scripts/main.js
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Сайт полностью загружен');
     
@@ -16,4 +14,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 });
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Форма отправлена! (Это демо, данные никуда не отправляются)');
+        this.reset();
+    });
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.sli');
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        clearActiveClasses();
+        slide.classList.add('active');
+      });
+    });
+    function clearActiveClasses() {
+      slides.forEach(slide => {
+        slide.classList.remove('active');
+      });
+    }
+  });
